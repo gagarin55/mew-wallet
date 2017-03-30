@@ -1,0 +1,58 @@
+{
+    "name": "npm-boilerplate",
+    "version": "1.0.0",
+    "description": "boilerplate for MyEtherWallet npm packages",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MyEtherWallet/npm-boilerplate.git"
+    },
+    "scripts": {
+        "lint": "standard 'src/*.js' --fix",
+        "coverage": "istanbul cover _mocha ./test/*.js",
+        "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+        "test": "npm run test:node && npm run test:browser",
+        "test:node": "mocha ./test/*.js",
+        "test:browser": "karma start karma.conf.js",
+        "build:docs": "documentation build -f md index.js > ./docs/index.md && contributor"
+    },
+    "keywords": [
+        "npm",
+        "boilerplate",
+        "mew",
+        "MyEtherWallet"
+    ],
+    "author": "kvhnuke & tayvano",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MyEtherWallet/npm-boilerplate/issues"
+    },
+    "homepage": "https://github.com/MyEtherWallet/npm-boilerplate#readme",
+    "devDependencies": {
+        "browserify": "^14.1.0",
+        "chai": "^3.5.0",
+        "contributor": "^0.1.25",
+        "coveralls": "^2.12.0",
+        "documentation": "^4.0.0-beta.18",
+        "istanbul": "^0.4.5",
+        "karma": "^1.5.0",
+        "karma-browserify": "^5.1.1",
+        "karma-chrome-launcher": "^2.0.0",
+        "karma-detect-browsers": "^2.2.5",
+        "karma-firefox-launcher": "^1.0.1",
+        "karma-mocha": "^1.3.0",
+        "karma-safari-launcher": "^1.0.0",
+        "mocha": "^3.2.0",
+        "standard": "^9.0.2",
+        "watchify": "^3.9.0"
+    },
+    "contributors": [{
+        "name": null,
+        "email": null,
+        "url": "https://github.com/kvhnuke",
+        "contributions": 2,
+        "additions": 194,
+        "deletions": 2,
+        "hireable": null
+    }]
+}
