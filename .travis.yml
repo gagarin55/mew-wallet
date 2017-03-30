@@ -1,0 +1,36 @@
+sudo: required 
+dist: trusty
+language: node_js
+node_js:
+  - "6"
+  - "7"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+before_install:
+  - sh -e /etc/init.d/xvfb start
+env:
+  global:
+    - DISPLAY=:99.0
+    - CXX=g++-4.8
+  matrix:
+    - CXX=g++-4.8 TEST_SUITE=test:node
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      node_js: "6"
+      env: CXX=g++-4.8 TEST_SUITE=coveralls
+    - os: linux
+      node_js: "6"
+      env: CXX=g++-4.8 TEST_SUITE=lint
+    - os: linux
+      node_js: "6"
+      env: CHROME_BIN=google-chrome CXX=g++-4.8 TEST_SUITE=test:browser
+    - os: osx
+      node_js: "6"
+      env: CXX=g++-4.8 TEST_SUITE=test:browser
+script: npm run $TEST_SUITE

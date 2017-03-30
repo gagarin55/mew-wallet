@@ -2,41 +2,102 @@
 
 ### Table of Contents
 
--   [add](#add)
--   [mul](#mul)
+-   [HDWallet](#hdwallet)
+    -   [getPath](#getpath)
+    -   [getMnemonic](#getmnemonic)
+    -   [getSeedString](#getseedstring)
+    -   [getSeed](#getseed)
+    -   [getChildPrivKey](#getchildprivkey)
+    -   [getChildPrivKeyString](#getchildprivkeystring)
+    -   [paths](#paths)
+    -   [isValidMnemonic](#isvalidmnemonic)
 
-## add
+## HDWallet
 
-Computes the sum of two values
+Initialize HD wallet
 
 **Parameters**
 
--   `valA` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** first value
--   `valB` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** second value (optional, default `0`)
+-   `_path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path
+-   `_mneumonic` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** mneumonic phrase (optional, default `_mnemonic`)
+-   `_password` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** for the mneumonic (optional, default `''`)
+-   `_mnemonic`   (optional, default `bip39.generateMnemonic()`)
 
 **Examples**
 
 ```javascript
-add(5,10);
-//returns 15
+var hd = new HDWallet("m/44'/60'/0'/0",,"test");
+//returns EthereumWallet {} for ETH
 ```
 
-Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** sum of the two input values
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** new ethereumwallet object
 
-## mul
+### getPath
 
-Computes the multiplication of two values
+Get derivation path
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path
+
+### getMnemonic
+
+Get mnemonic phrase
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** mneumonic phrase
+
+### getSeedString
+
+Get seed string
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** returns seed as a hex string
+
+### getSeed
+
+Get seed
+
+Returns **[buffer](https://nodejs.org/api/buffer.html)** returns seed as a buffer
+
+### getChildPrivKey
+
+Private key for specified child
 
 **Parameters**
 
--   `valA` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** first value
--   `valB` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** second value (optional, default `1`)
+-   `_index` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** index of child
+
+Returns **[buffer](https://nodejs.org/api/buffer.html)** private key
+
+### getChildPrivKeyString
+
+Private key for specified child
+
+**Parameters**
+
+-   `_index` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** index of child
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** private key
+
+### paths
+
+**Properties**
+
+-   `ETH` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path for Ether.
+-   `BTC` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path for Bitcoin.
+-   `ETC` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path for Ether Classic.
+-   `XMR` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** derivation path for Monero.
+
+### isValidMnemonic
+
+Validate mnemonic phrase
+
+**Parameters**
+
+-   `_mnemonic` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** mnemonic phrase
 
 **Examples**
 
 ```javascript
-mul(5,10);
-//returns 50
+var hd = new HDWallet("m/44'/60'/0'/0",,"test");
+//returns HDWallet {} for ETH
 ```
 
-Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** multiplication of the two input values
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true/false

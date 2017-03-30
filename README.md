@@ -1,3 +1,4 @@
 # MyEtherWallet Wallet library
 Library for crypto wallet related stuff
+based on ethereumjs-wallet for ETH wallets
 [![Coverage Status](https://coveralls.io/repos/github/MyEtherWallet/mew-wallet/badge.svg)](https://coveralls.io/github/MyEtherWallet/mew-wallet)[![Build Status](https://travis-ci.org/MyEtherWallet/mew-wallet.svg?branch=master)](https://travis-ci.org/MyEtherWallet/mew-wallet)[![Dependency Status](https://img.shields.io/david/MyEtherWallet/mew-wallet.svg)](https://david-dm.org/MyEtherWallet/mew-wallet) [![devDependency Status](https://img.shields.io/david/dev/MyEtherWallet/mew-wallet.svg)](https://david-dm.org/MyEtherWallet/mew-wallet#info=devDependencies)

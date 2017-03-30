@@ -1,3 +1,5 @@
 'use strict'
-var simpleCalc = require('./src/simpleCalc')
-module.exports = simpleCalc
+var HDWallet = require('./src/HDWallet')
+module.exports = {
+    HDWallet: HDWallet
+}
