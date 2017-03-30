@@ -30,7 +30,8 @@ matrix:
     - os: linux
       before_install:
         - sudo apt-get update
-        - sudo apt-get upgrade
+        - sudo apt-get upgrade google-chrome-stable -y
+        - sudo apt-get upgrade firefox -y
       node_js: "6"
       env: CHROME_BIN=google-chrome CXX=g++-4.8 TEST_SUITE=test:browser
 script: npm run $TEST_SUITE
