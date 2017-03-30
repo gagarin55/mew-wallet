@@ -28,9 +28,9 @@ matrix:
       node_js: "6"
       env: CXX=g++-4.8 TEST_SUITE=lint
     - os: linux
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get upgrade
       node_js: "6"
       env: CHROME_BIN=google-chrome CXX=g++-4.8 TEST_SUITE=test:browser
-    - os: osx
-      node_js: "6"
-      env: CXX=g++-4.8 TEST_SUITE=test:browser
 script: npm run $TEST_SUITE
