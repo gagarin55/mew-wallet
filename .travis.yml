@@ -1,9 +1,6 @@
 sudo: required 
 dist: trusty
 language: node_js
-addons:
-  firefox: "latest"
-  chrome: "latest"
 node_js:
   - "6"
   - "7"
@@ -14,6 +11,7 @@ addons:
     packages:
       - g++-4.8
       - google-chrome-stable
+  firefox: "latest"
 env:
   global:
     - DISPLAY=:99.0
