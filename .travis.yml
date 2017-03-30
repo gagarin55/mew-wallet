@@ -10,8 +10,8 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-before_install:
-  - sh -e /etc/init.d/xvfb start
+      - google-chrome-stable
+      - firefox
 env:
   global:
     - DISPLAY=:99.0
@@ -29,9 +29,7 @@ matrix:
       env: CXX=g++-4.8 TEST_SUITE=lint
     - os: linux
       before_install:
-        - sudo apt-get update
-        - sudo apt-get install google-chrome-stable -y
-        - sudo apt-get install firefox -y
+        - sh -e /etc/init.d/xvfb start
       node_js: "6"
       env: CHROME_BIN=google-chrome CXX=g++-4.8 TEST_SUITE=test:browser
 script: npm run $TEST_SUITE
