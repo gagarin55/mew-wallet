@@ -58,8 +58,9 @@
     }
   ],
   "dependencies": {
+    "bignumber.js": "^4.0.0",
     "bip39": "^2.3.0",
     "bs58check": "^2.0.1",
-    "hdkey": "^0.7.1"
+    "hdkey": "^0.7.1",
   }
 }
