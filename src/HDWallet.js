@@ -42,7 +42,7 @@ HDWallet.prototype.getPath = function () {
      * @returns {string} mneumonic phrase
      */
 HDWallet.prototype.getMnemonic = function () {
-  return this.mneumonic
+  return this.mnemonic
 }
     /**
      * Get seed string

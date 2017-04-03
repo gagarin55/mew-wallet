@@ -28,4 +28,9 @@ describe('Wallet Tests', function() {
         expect(detHD.getChildPrivKey(0).toString('hex')).to.equal("763471a73a0f77e84800e07d27baef546cef33d0c02850093409a30ee1b4a162");
         expect(detHD.getChildPrivKeyString(10)).to.equal("3fdb4a0974af815f99e7f308eb9d04f773335f48cd5624be63fa284417bc2c3e");
     });
+    it('getMnemonic() should return correct value', function() {
+        const phrase = 'mnemonic phrase';
+        const wallet = new HDWallet(HDWallet.paths.ETH, phrase);
+        expect(wallet.getMnemonic()).to.equal(phrase);
+    });
 });
